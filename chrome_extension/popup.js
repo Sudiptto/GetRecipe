@@ -29,14 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
           // Create a new HTML blob with the ingredients and recipe
           // The text is centered using CSS and each ingredient is on a new line
           // Front-end developers can modify the CSS here to change the appearance of the text
-          var blob = new Blob([`
-              <div style="text-align: center; padding: 20px;">
-                  <h1>Ingredients:</h1>
-                  <p>${ingredients}</p>
-                  <h1>Recipe:</h1>
-                  <p>${recipe}</p>
-              </div>
-          `], { type: 'text/html' });
+            var blob = new Blob([`
+              <html>
+                <body style="background-color: yellow;">
+                  <div style="text-align: center; padding: 20px; color: black;">
+                    <h1>Ingredients:</h1>
+                    <p>${ingredients}</p>
+                    <h1>Recipe:</h1>
+                    <p>${recipe}</p>
+                  </div>
+                </body>
+              </html>
+            `], { type: 'text/html' });
 
           // Create a URL for the blob
           var blobUrl = URL.createObjectURL(blob);
