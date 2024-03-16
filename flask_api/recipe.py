@@ -59,5 +59,5 @@ def getRecipe(foodPrompt):
 #print(ingredients_gen('bengali biryani'))
 food = "cookies and cream ice cream"
 #print(instructions_gen(food,ingredients_gen(food)))
-print(getRecipe(food))
+#print(getRecipe(food))
 
