@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from YOLO import imageDetection 
 from werkzeug.utils import secure_filename
 import os
 
@@ -17,7 +18,8 @@ def handle_form():
     # Process the image 
     # Process the image and generate some text
     text = 'Image processed: ' + filename
-
+    imageRoute = f"uploads/{filename}"
+    imageDetection(imageRoute) #RUNS THE IMAGE DETECTION FUNCTION IN THE YOLO.PY SCRIPT
     return jsonify({ 'text': text })
 
 if __name__ == '__main__':
