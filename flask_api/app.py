@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from detect import detectImage
 from werkzeug.utils import secure_filename
 import os
 
@@ -14,6 +15,7 @@ def handle_form():
     filename = secure_filename(image.filename)
     image.save(os.path.join(UPLOAD_FOLDER, filename))
 
+    detectImage(os.path.join(UPLOAD_FOLDER, filename))
     # Process the image 
     # Process the image and generate some text
     ingredientRecipie = [['tomato', 'onion', 'lettuce', 'cheese', 'patty', 'bun'], ['put tomaot in bread', 'crust the bread', 'get an onion', 'toast the bread', 'serve the pizza'] ]
