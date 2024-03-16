@@ -2,9 +2,8 @@ env
 
 flask_api/uploads
 
-yolov8n.pt
+flask_api/passwords.py
 
 runs
-pizza.jpeg
 
-flask_api/passwords.py
+
