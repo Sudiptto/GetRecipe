@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <!-- THIS IS THE POPUP PAGE -->
-        <h1 id="message">Loading...</h1>
-        <script src="popup.js"></script>
-
-        <form id="myForm">
-            <input id="inputBox" type="file" accept=".png">
-            <input type="submit" value="Submit">
-        </form>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Image</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Choose Image</h2>
+    <input type="file" id="imageInput">
+    <button id="submitBtn">Submit</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
 </html>
