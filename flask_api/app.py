@@ -16,7 +16,9 @@ def handle_form():
 
     # Process the image 
     # Process the image and generate some text
-    text = 'Image processed: ' + filename
+    ingredientRecipie = [['tomato', 'onion', 'lettuce', 'cheese', 'patty', 'bun'], ['put tomaot in bread', 'crust the bread', 'get an onion', 'toast the bread', 'serve the pizza'] ]
+    #text = 'Image processed: ' + filename
+    text = ingredientRecipie
 
     return jsonify({ 'text': text })
 
