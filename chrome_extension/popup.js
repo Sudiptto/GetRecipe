@@ -25,16 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
           var ingredients = data.ingredients.join('<br>');
           var recipe = data.recipe.join('. ');
 
-          // NOTE FOR AYEN: THIS IS WHERE YOU CAN MODIFY THE HTML/CSS FOR THE MESSAGE.HTML (where the ingredients are )
-          // Create a new HTML blob with the ingredients and recipe
-          // The text is centered using CSS and each ingredient is on a new line
-          // Front-end developers can modify the CSS here to change the appearance of the text
+          // Update the background color of the popup container dynamically
+          var popupContainer = document.querySelector('.popup-container');
+          popupContainer.style.backgroundColor = '#FFA07A'; // Change the background color to light salmon
+
+          // Update the message dynamically
+          var message = document.getElementById('message');
+          message.textContent = "Your recipe is ready!"; // Change the message content
+          message.style.color = '#FF6347'; // Change the text color to tomato
+          
           var blob = new Blob([`
               <div style="text-align: center; padding: 20px;">
                   <h1>Ingredients:</h1>
                   <p>${ingredients}</p>
                   <h1>Recipe:</h1>
-                  <p>${recipe}</p>
+                  <h2>${recipe}</h2>
               </div>
           `], { type: 'text/html' });
 

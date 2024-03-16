@@ -26,11 +26,11 @@ def handle_form():
 
     # Note: Using Samin's recipie.py right now to return back a twoD 
     food = "pizza" # placeholder for now
-    allRecipe = getRecipe(food)
-    ingredients = allRecipe[0]
-    recipe = allRecipe[1]
+    # allRecipe = getRecipe(food)
+    # ingredients = allRecipe[0]
+    # recipe = allRecipe[1]
 
-    print(ingredients, recipe)
+    # print(ingredients, recipe)
     # TEST FOR AYEN USE THESE TO NOT DRAIN OPENAI
     # How to use comment out the previous lines of code above and use the ingredients down here instead (so comment out the allRecipe, ingredients and recipe variables above and use the new ones below)
     ingredients = ['Dough', 'Tomato sauce', 'Mozzarella cheese', 'Olive oil', 'Salt', 'Pepper', 'Fresh basil', 'Pizza toppings (e.g., pepperoni, mushrooms, onions, etc.)']
