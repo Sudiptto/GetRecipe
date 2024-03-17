@@ -30,7 +30,7 @@ def handle_form():
     # ingredients = allRecipe[0]
     # recipe = allRecipe[1]
 
-    # print(ingredients, recipe)
+    #print(ingredients, recipe)
     # TEST FOR AYEN USE THESE TO NOT DRAIN OPENAI
     # How to use comment out the previous lines of code above and use the ingredients down here instead (so comment out the allRecipe, ingredients and recipe variables above and use the new ones below)
     ingredients = ['Dough', 'Tomato sauce', 'Mozzarella cheese', 'Olive oil', 'Salt', 'Pepper', 'Fresh basil', 'Pizza toppings (e.g., pepperoni, mushrooms, onions, etc.)']

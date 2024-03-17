@@ -25,23 +25,95 @@ document.addEventListener('DOMContentLoaded', function() {
           var ingredients = data.ingredients.join('<br>');
           var recipe = data.recipe.join('. ');
 
-          // Update the background color of the popup container dynamically
-          var popupContainer = document.querySelector('.popup-container');
-          popupContainer.style.backgroundColor = '#FFA07A'; // Change the background color to light salmon
+          // NOTE FOR AYEN: THIS IS WHERE YOU CAN MODIFY THE HTML/CSS FOR THE MESSAGE.HTML (where the ingredients are )
+          // Create a new HTML blob with the ingredients and recipe
+          // The text is centered using CSS and each ingredient is on a new line
+          // Front-end developers can modify the CSS here to change the appearance of the text
+            var blob = new Blob([`
 
-          // Update the message dynamically
-          var message = document.getElementById('message');
-          message.textContent = "Your recipe is ready!"; // Change the message content
-          message.style.color = '#FF6347'; // Change the text color to tomato
-          
-          var blob = new Blob([`
-              <div style="text-align: center; padding: 20px;">
-                  <h1>Ingredients:</h1>
-                  <p>${ingredients}</p>
-                  <h1>Recipe:</h1>
-                  <h2>${recipe}</h2>
-              </div>
-          `], { type: 'text/html' });
+        <html lang="en">
+        <head>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Madimi+One&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Recipe</title>
+          </head>
+          <style>.body {
+            background-color: #ffffe0; /* Light yellow background */
+            font-family: Arial, sans-serif;
+        }
+     
+     
+        ,container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+     
+     
+        ,content {
+            text-align: center;
+            padding: 20px;
+            color: black;
+            border: 2px solid #ffd700; /* Gold border */
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+     
+     
+        ,recipe-details {
+            margin-top: 20px;
+            text-align: center;s
+        }
+     
+     
+        h1 {
+            color: #ff6347; /* Tomato red for headings */
+            font-size: 2.5em;
+            font-family: "Madimi One", sans-serif;
+            text-align: center;
+        }
+     
+     
+        h2 {
+            color: #4682b4; /* Steel blue for subheadings */
+            font-size: 1.5em;
+            font-family: "Londrina Shadow", sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+     
+     
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            text-align: center;
+        }
+     </style>
+          <body style="background-color: #ffffe0;">
+         <div class="container">
+          <div class="content">
+            <h1>Delicious Recipe</h1>
+            <div class="recipe-details">
+                <h2>Ingredients:</h2>
+                <p>${ingredients}</p>
+                <h2>Recipe:</h2>
+                <p>${recipe}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>`], { type: 'text/html' });
 
           // Create a URL for the blob
           var blobUrl = URL.createObjectURL(blob);
@@ -51,3 +123,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
