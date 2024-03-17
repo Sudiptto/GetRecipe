@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(data => {
           // Convert the ingredients and recipe arrays into strings
           // Each ingredient is separated by a line break for better readability
-          var ingredients = data.ingredients.join('<br>');
-          var recipe = data.recipe.join('. ');
+          var ingredients = data.ingredients.join('<li>');
+          var recipe = data.recipe.join('<li>');
 
           //png file name and food data 
           var filename = data.filename;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <title>Recipe</title>
             </head>
             <style>.body {
-            background-color: #ffffe0; /* Light yellow background */
+            background-color: #ffffe0;  /*Light yellow background */
             font-family: Arial, sans-serif;
             }
             ,container {
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             h1 {
             color: #ff6347; /* Tomato red for headings */
-            font-size: 2.5em;
+            font-size: 4em;
             font-family: "Madimi One", sans-serif;
             text-align: center;
             }
@@ -82,29 +82,53 @@ document.addEventListener('DOMContentLoaded', function() {
             font-weight: bold;
             text-align: center;
             }
-            p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            text-align: center;
-            }
+            h3 {
+              color: #ff6347; /* Tomato red for headings */
+              font-size: 4em;
+              font-family: "Madimi One", sans-serif;
+              margin-left: 10%;
+              margin-right: auto;
+              }
+            p  {
+              font-size: 1.1em;
+              line-height: 1.6;
+              text-align: center;
+              }
+            li{
+              font-size: 1.4em;
+              line-height: 1.6;
+              text-align: center;
+              font-weight:bold;
+              }
+            
             img{
                 display: block;
-                margin-left: auto;
+                margin-left: 10;
                 margin-right: auto;
                 width: 30%;
+                background-color:black;
+                border:ridge 8px #000000;
             }
             </style>
-            <body style="background-color: #ffffe0;">
+            <body style="background-image: linear-gradient( to bottom, #FFFC93, #ffffff);">
             <div class="container">
             <div class="content">
-            <h1>${food} Recipe</h1>
+            <h1>${food} Recipe!!!</h1>
             <div class="recipe-details">
-            <h2>Ingredients:</h2>
-            <p>${ingredients}</p>
-            <h2>Recipe:</h2>
-            <p>${recipe}</p>
-            </div>
+            <h3>${food}</h3>
             <img src = "http://127.0.0.1:5000/uploads/${filename}" style=>
+            <div class="ingredients" style="display:block; margin-top:-31%;">
+            <h2 style="font-size: 3em;">Ingredients:</h2>
+            <li>${ingredients}</li>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="Recipe">
+            <h2 style="font-size: 3em;">Recipe:</h2>
+            <li>${recipe}</li>
+            </div>
+            </div>
             </div>
             </div>
             </body>
