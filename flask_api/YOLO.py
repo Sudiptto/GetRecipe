@@ -26,7 +26,7 @@ yolo_logger.addHandler(stream_handler)
 model = YOLO('yolov8n.pt')
 
 # Define path to the image file
-source = 'uploads/pizza.png'
+source = 'uploads/p1zza.png'
 
 # Run inference on the source
 results = model(source)
