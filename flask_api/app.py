@@ -1,6 +1,4 @@
 from flask import Flask, request, jsonify
-#from YOLO import imageDetection 
-#from detect import detectImage
 from recipe import * 
 from werkzeug.utils import secure_filename
 import os
