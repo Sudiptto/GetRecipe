@@ -30,11 +30,11 @@ def handle_form():
     ingredients = allRecipe[0]
     recipe = allRecipe[1]
 
-    print(ingredients, recipe)
+    #print(ingredients, recipe)
     # TEST FOR AYEN USE THESE TO NOT DRAIN OPENAI
     # How to use comment out the previous lines of code above and use the ingredients down here instead (so comment out the allRecipe, ingredients and recipe variables above and use the new ones below)
-    ingredients = ['Dough', 'Tomato sauce', 'Mozzarella cheese', 'Olive oil', 'Salt', 'Pepper', 'Fresh basil', 'Pizza toppings (e.g., pepperoni, mushrooms, onions, etc.)']
-    recipe = ['Preheat the oven to 475°F (245°C).', 'Roll out the pizza dough on a floured surface to your desired thickness.', 'Transfer the dough to a greased baking sheet or pizza stone.', 'Spread a thin layer of pizza sauce evenly over the dough.', 'Top with your favorite toppings, such as cheese, pepperoni, mushrooms, onions, and bell peppers.', 'Bake in the preheated oven for about 10-15 minutes, or until the crust is golden and the cheese is melted and bubbly.', 'Remove the pizza from the oven and let it cool for a few minutes before slicing and serving.', 'Enjoy your classic homemade pizza!']
+    #ingredients = ['Dough', 'Tomato sauce', 'Mozzarella cheese', 'Olive oil', 'Salt', 'Pepper', 'Fresh basil', 'Pizza toppings (e.g., pepperoni, mushrooms, onions, etc.)']
+    #recipe = ['Preheat the oven to 475°F (245°C).', 'Roll out the pizza dough on a floured surface to your desired thickness.', 'Transfer the dough to a greased baking sheet or pizza stone.', 'Spread a thin layer of pizza sauce evenly over the dough.', 'Top with your favorite toppings, such as cheese, pepperoni, mushrooms, onions, and bell peppers.', 'Bake in the preheated oven for about 10-15 minutes, or until the crust is golden and the cheese is melted and bubbly.', 'Remove the pizza from the oven and let it cool for a few minutes before slicing and serving.', 'Enjoy your classic homemade pizza!']
     return jsonify({ 'ingredients': ingredients, 'recipe': recipe })
 
 if __name__ == '__main__':
