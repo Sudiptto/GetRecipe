@@ -34,6 +34,10 @@ def UltimateSlicing(model):
         return 'pasta'
     elif ('cake' or 'cakes') in sliced:
         return 'cake'
+    elif ('donut' or 'donuts') in sliced:
+        return 'donut'
+    elif ('sandwich' or 'sandwiches') in sliced:
+        return 'sandwich'
     
 
 def imageDetection(imageRoute):
