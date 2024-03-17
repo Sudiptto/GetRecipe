@@ -1,15 +1,19 @@
-<!--POPUP WHERE THE USERS GETS TO UPLOAD AN IMAGE -->
-<!--POPUP THAT THE FILE LOADED AT THE BEGINNING -->
 <!DOCTYPE html>
 <html>
-    <body>
-        <!-- THIS IS THE POPUP PAGE -->
-        <h1 id="message">Loading...</h1>
-        <script src="popup.js"></script>
-        <!--Note for Ayen: Keep the file names and the forms the same don't try to modify this -->
+<head>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+    <!-- THIS IS THE POPUP PAGE -->
+    <div class="popup-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1 id="message">Let us Create Your Recipe!!</h1>
+        <!-- Note for Ayen: Keep the file names and the forms the same don't try to modify this -->
         <form id="myForm">
             <input id="inputBox" type="file" accept=".png">
             <input type="submit" value="Submit">
         </form>
-    </body>
+    </div>
+    <script src="popup.js"></script>
+</body>
 </html>
