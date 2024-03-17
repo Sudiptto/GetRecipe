@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from YOLO import imageDetection 
+#from YOLO import imageDetection 
 #from detect import detectImage
 from recipe import * 
 from werkzeug.utils import secure_filename
@@ -22,14 +22,15 @@ def handle_form():
     # Process the image and generate some text
     text = 'Image processed: ' + filename
     imageRoute = f"uploads/{filename}"
-    imageDetection(imageRoute) #RUNS THE IMAGE DETECTION FUNCTION IN THE YOLO.PY SCRIPT
+    #imageDetection(imageRoute) #RUNS THE IMAGE DETECTION FUNCTION IN THE YOLO.PY SCRIPT
 
     # Note: Using Samin's recipie.py right now to return back a twoD 
     food = "pizza" # placeholder for now
-    # allRecipe = getRecipe(food)
-    # ingredients = allRecipe[0]
-    # recipe = allRecipe[1]
+    allRecipe = getRecipe(food)
 
+    ingredients = allRecipe[0]
+    recipe = allRecipe[1]
+    print(ingredients, recipe)
     #print(ingredients, recipe)
     # TEST FOR AYEN USE THESE TO NOT DRAIN OPENAI
     # How to use comment out the previous lines of code above and use the ingredients down here instead (so comment out the allRecipe, ingredients and recipe variables above and use the new ones below)
