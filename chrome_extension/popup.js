@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Create a new FormData object and append the file to it
       var formData = new FormData();
       formData.append('image', file);
-
+      
       // Make a POST request to the Flask API with the FormData object
       fetch('http://127.0.0.1:5000/api/form', {
           method: 'POST',
@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
           var ingredients = data.ingredients.join('<br>');
           var recipe = data.recipe.join('. ');
 
-          //png file name
+          //png file name and food data 
           var filename = data.filename;
+          var food = data.food;
 
           // NOTE FOR AYEN: THIS IS WHERE YOU CAN MODIFY THE HTML/CSS FOR THE MESSAGE.HTML (where the ingredients are )
           // Create a new HTML blob with the ingredients and recipe
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <body style="background-color: #ffffe0;">
             <div class="container">
             <div class="content">
-            <h1>Delicious Recipe</h1>
+            <h1>${food} Recipe</h1>
             <div class="recipe-details">
             <h2>Ingredients:</h2>
             <p>${ingredients}</p>
@@ -114,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // Open a new tab with the blob URL
           chrome.tabs.create({ url: blobUrl });
+          
       });
   });
 });
