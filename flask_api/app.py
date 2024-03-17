@@ -26,9 +26,9 @@ def handle_form():
 
     # Note: Using Samin's recipie.py right now to return back a twoD 
     food = "pizza" # placeholder for now
-    allRecipe = getRecipe(food)
-    ingredients = allRecipe[0]
-    recipe = allRecipe[1]
+    # allRecipe = getRecipe(food)
+    # ingredients = allRecipe[0]
+    # recipe = allRecipe[1]
 
     #print(ingredients, recipe)
     # TEST FOR AYEN USE THESE TO NOT DRAIN OPENAI
