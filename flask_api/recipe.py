@@ -1,4 +1,5 @@
 import openai
+import requests
 from passwords import *
 
 
@@ -8,9 +9,12 @@ openai.api_type = api_type
 openai.api_version = "2023-03-15-preview"
 OPENAI_MODEL = "gpt-35-turbo"
 
+#url to get info for meal 
+url = "https://www.themealdb.com/api/json/v1/1/search.php?s="
+
 # generate instructions on how to make a dish given a list of ingredients 
-def instructions_gen(txt_prompt,ing_list):
-  response = openai.ChatCompletion.create(
+def instructions_gen(food_prompt,ing_list):
+    response = openai.ChatCompletion.create(
     engine=OPENAI_MODEL,
     messages=[
       {
@@ -19,19 +23,19 @@ def instructions_gen(txt_prompt,ing_list):
       },
       {
         "role": "user",
-        "content": txt_prompt
+        "content": food_prompt
       },
     ])
-  generated_text = response['choices'][0]['message']['content']
-  instructions = generated_text.split("\n") # turn string to a list
-  for i in range(len(instructions)):
-    instructions[i] = instructions[i][3:]
+    generated_text = response['choices'][0]['message']['content']
+    instructions = generated_text.split("\n") # turn string to a list
+    for i in range(len(instructions)):
+        instructions[i] = instructions[i][3:]
 
-  return instructions
+    return instructions
 
 # return an array/list of ingredients that are needed for the dish
-def ingredients_gen(txt_prompt):
-  response = openai.ChatCompletion.create(
+def openAI_ingredients(food_prompt):
+    response = openai.ChatCompletion.create(
     engine=OPENAI_MODEL,
     messages=[
       {
@@ -40,24 +44,54 @@ def ingredients_gen(txt_prompt):
       },
       {
         "role": "user",
-        "content": txt_prompt
+        "content": food_prompt
       },
     ])
-  generated_text = response['choices'][0]['message']['content']
-  ingredients = generated_text.split("\n")
-  for i in range(len(ingredients)):
-    ingredients[i] = ingredients[i][3:]
+    generated_text = response['choices'][0]['message']['content']
+    ingredients = generated_text.split("\n")
+    for i in range(len(ingredients)):
+        ingredients[i] = ingredients[i][3:]
       
   
-  return ingredients
+    return ingredients
+
+#this will use the api for the meal website
+#if a food doesnt exist, it will return false 
+#
+def ingredients_gen(food_prompt):
+        hasFood= foodExists(food_prompt)
+        if hasFood:
+            instructions =[]
+            url += food_prompt
+            response = requests.get(url)
+            data ={"key1": "value1","key2":"value2"} # data to send
+            response = requests.post(url,data=data) #update data 
+            response_data = response.json()
+            mealInfo = response_data["meals"][0] # return the information for the meal 
+            instructions = mealInfo["strInstructions"]
+            ingredients = []
+            index=0
+            for key in mealInfo:
+                if 'strIngredient' in key:
+                    ingredients.append(mealInfo[key])
+                    index+=1
+            return ingredients
+        else:
+            return openAI_ingredients(food_prompt)
+
 
 def getRecipe(foodPrompt):
     recipe=[ingredients_gen(foodPrompt),instructions_gen(foodPrompt,ingredients_gen(foodPrompt))]
     return recipe
 
-'''
-#print(ingredients_gen('bengali biryani'))
-food = "cookies and cream ice cream"
-#print(instructions_gen(food,ingredients_gen(food)))
-print(getRecipe(food))
-'''
+def foodExists(food_prompt):
+    url = f"https://www.themealdb.com/api/json/v1/1/search.php?s={food_prompt}"
+    data = requests.get(url)
+    data2= data.json()
+    mealInfo = data2["meals"]
+    if mealInfo == None:
+        return False
+    return True
+
+
+
